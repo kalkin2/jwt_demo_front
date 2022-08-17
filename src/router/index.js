@@ -13,6 +13,11 @@ const routes = [
 		path: '/signup',
 		component: () => import('@/views/SignupPage.vue'),
 	},
+	{
+		// path: '*',
+		path: '/:catchAll(.*)', // Unrecognized path automatically matches 404
+		component: () => import('@/views/NotFoundPage.vue'),
+	},
 ];
 
 const router = createRouter({
