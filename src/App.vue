@@ -1,7 +1,9 @@
 <template>
-	<div>
+	<div class="app">
 		<AppHeader></AppHeader>
-		<router-view></router-view>
+		<div class="app-contents">
+			<router-view></router-view>
+		</div>
 	</div>
 </template>
 
@@ -11,5 +13,7 @@ export default {
 	components: { AppHeader },
 };
 </script>
-
-<style></style>
+<style>
+@import './css/reset.css';
+@import './css/common.css';
+</style>

@@ -1,24 +1,48 @@
 <template>
-	<form @submit.prevent="submitForm">
-		<div>
-			<label for="username">ID: </label>
-			<input id="username" type="text" v-model="username" />
+	<div class="contents">
+		<div class="form-wrapper form-wrapper-sm">
+			<form class="form" @submit.prevent="submitForm">
+				<div>
+					<label for="username">ID: </label>
+					<input id="username" type="text" v-model="username" />
+					<p class="validation-text">
+						<span class="warning" v-if="!isRegisterValid && username">
+							Please enter an email address
+						</span>
+					</p>
+				</div>
+				<div>
+					<label for="password">PASSWORD: </label>
+					<input id="password" type="text" v-model="password" />
+					<p class="validation-text">
+						<span class="warning" v-if="!isRegisterValid && username">
+							Please enter an password
+						</span>
+					</p>
+				</div>
+				<div>
+					<label for="nickname">NickName: </label>
+					<input id="nickname" type="text" v-model="nickname" />
+					<p class="validation-text">
+						<span class="warning" v-if="!isRegisterValid && username">
+							Please enter an nickname
+						</span>
+					</p>
+				</div>
+				<button class="btn" type="submit" :disabled="!isRegisterValid">
+					회원가입
+				</button>
+				<p>{{ logMessage }}</p>
+			</form>
+			<p class="log">{{ logMessage }}</p>
 		</div>
-		<div>
-			<label for="password">PASSWORD: </label>
-			<input id="password" type="text" v-model="password" />
-		</div>
-		<div>
-			<label for="nickname">NickName: </label>
-			<input id="nickname" type="text" v-model="nickname" />
-		</div>
-		<button type="submit">회원가입</button>
-		<p>{{ logMessage }}</p>
-	</form>
+	</div>
 </template>
 
 <script>
 import { registerUser } from '@/api/index';
+import { validateEmail } from '@/components/utils/validation';
+
 export default {
 	data() {
 		return {
@@ -27,6 +51,11 @@ export default {
 			nickname: '',
 			logMessage: '',
 		};
+	},
+	computed: {
+		isRegisterValid() {
+			return validateEmail(this.username);
+		},
 	},
 	methods: {
 		async submitForm() {
