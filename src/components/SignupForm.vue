@@ -1,23 +1,36 @@
 <template>
-	<form>
+	<form @submit.prevent="submitForm">
 		<div>
 			<label for="username">ID: </label>
-			<input id="username" type="text" />
+			<input id="username" type="text" v-model="username" />
 		</div>
 		<div>
 			<label for="password">PASSWORD: </label>
-			<input id="password" type="text" />
+			<input id="password" type="text" v-model="password" />
 		</div>
 		<div>
 			<label for="nickname">NickName: </label>
-			<input id="nickname" type="text" />
+			<input id="nickname" type="text" v-model="nickname" />
 		</div>
+		<button type="submit">Login2</button>
 	</form>
-	<button type="submit">Login</button>
 </template>
 
 <script>
-export default {};
+export default {
+	data() {
+		return {
+			username: '',
+			password: '',
+			nickname: '',
+		};
+	},
+	methods: {
+		submitForm() {
+			console.log('username:', this.username);
+		},
+	},
+};
 </script>
 
 <style lang="scss" scoped></style>
