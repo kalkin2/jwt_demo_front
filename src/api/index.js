@@ -9,9 +9,8 @@ function registerUser(userData) {
 	return instance.post('signUp', userData);
 }
 
-// function loginUser(userData) {
-// 	const url = 'http://localhost:3000/login';
-// 	return axios.post(url, userData);
-// }
+function loginUser(userData) {
+	return instance.post('login', userData);
+}
 
-export { registerUser };
+export { registerUser, loginUser };
