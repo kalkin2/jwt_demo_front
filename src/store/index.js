@@ -15,6 +15,9 @@ const store = createStore({
 			console.log('mutations...', payload);
 			state.username = payload;
 		},
+		clearUsername(state) {
+			state.username = '';
+		},
 	},
 });
 
