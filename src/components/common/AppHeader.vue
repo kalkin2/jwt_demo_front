@@ -6,7 +6,9 @@
 		<div class="navagations">
 			<template v-if="isUserLogin">
 				<span class="username">{{ $store.state.username }}</span>
-				<a href="javascript:;" @click="logoutUser">Logout</a>
+				<a href="javascript:;" @click="logoutUser" class="logout-button">
+					Logout</a
+				>
 			</template>
 			<template v-else>
 				<router-link to="/login">로그인 </router-link> |
