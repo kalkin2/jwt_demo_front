@@ -5,6 +5,11 @@ const store = createStore({
 	state: {
 		username: '',
 	},
+	getters: {
+		isLogin(state) {
+			return state.username !== '';
+		},
+	},
 	mutations: {
 		setUsername(state, payload) {
 			console.log('mutations...', payload);
