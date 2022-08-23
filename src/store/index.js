@@ -13,7 +13,6 @@ const store = createStore({
 	},
 	mutations: {
 		setUsername(state, payload) {
-			console.log('mutations...', payload);
 			state.username = payload;
 		},
 		clearUsername(state) {
@@ -22,6 +21,7 @@ const store = createStore({
 		setToken(state, token) {
 			console.log('jwtToken:::', token);
 			state.token = token;
+			console.log('setToken complete.');
 		},
 	},
 });
