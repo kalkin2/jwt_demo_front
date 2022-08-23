@@ -4,6 +4,7 @@ import { createStore } from 'vuex';
 const store = createStore({
 	state: {
 		username: '',
+		token: '',
 	},
 	getters: {
 		isLogin(state) {
@@ -17,6 +18,10 @@ const store = createStore({
 		},
 		clearUsername(state) {
 			state.username = '';
+		},
+		setToken(state, token) {
+			console.log('jwtToken:::', token);
+			state.token = token;
 		},
 	},
 });
