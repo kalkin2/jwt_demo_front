@@ -14,6 +14,10 @@ const routes = [
 		component: () => import('@/views/SignupPage.vue'),
 	},
 	{
+		path: '/main',
+		component: () => import('@/views/MainPage.vue'),
+	},
+	{
 		// path: '*',
 		path: '/:catchAll(.*)', // Unrecognized path automatically matches 404
 		component: () => import('@/views/NotFoundPage.vue'),

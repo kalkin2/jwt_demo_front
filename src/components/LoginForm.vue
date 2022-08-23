@@ -53,7 +53,9 @@ export default {
 				};
 				const { data } = await loginUser(userData);
 				console.log(data.user.username);
-				this.logMessage = `${data.user.username}님 환영합니다.`;
+				// this.logMessage = `${data.user.username}님 환영합니다.`;
+				//메인페이지로 이동
+				this.$router.push('/main');
 			} catch (error) {
 				this.logMessage = error.response.data;
 			} finally {
